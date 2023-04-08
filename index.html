@@ -1,4 +1,48 @@
----
-layout: home
-# Index page
----
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>iOS developer</title>
+    <style>
+        .container {
+            width: 100%;
+            height: calc(100vh);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background-color: cyan;
+            background-image: linear-gradient(141deg, lightgray 0%, #1fc8db 51%, skyblue 75%);
+            background-size: 100% 100%;
+        }
+    </style>
+    <script>
+        function startTime() {
+            var today = new Date();
+            var y = today.getFullYear();
+            var m = today.getMonth() + 1;
+            var d = today.getDate();
+            var h = today.getHours();
+            var mi = today.getMinutes();
+            var s = today.getSeconds();
+            mi = checkTime(mi);
+            s = checkTime(s);
+            document.getElementById('time').innerHTML = y + "-" + m + "-" + d + " " + h + ":" + mi + ":" + s;
+            t = setTimeout(() => startTime(), 1000);
+        }
+        function checkTime(i) {
+            return i < 10 ? "0" + i : i;
+        }
+    </script>
+</head>
+
+<body onload="startTime()">
+    <div class="container">
+        <h1>Hello, World!</h1>
+        <h5 id="time">2023</h5>
+    </div>
+</body>
+
+</html>
